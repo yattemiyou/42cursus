@@ -1,0 +1,33 @@
+# https://zenn.dev/keitean/articles/aaef913b433677
+TARGET = main.exe
+
+NAME = libft.a
+
+INCLUDE = -I.
+
+SRCDIR = ./
+SRCS = ft_isalpha.c
+
+OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar r $@ $^
+
+debug: main.o $(OBJS)
+	$(CC) $^ -o $(TARGET)
+
+%.o: %.c
+	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $*.o
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
