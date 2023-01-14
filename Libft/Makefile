@@ -8,6 +8,7 @@ INCLUDE = -I.
 
 SRCDIR = ./
 SRCS = ft_isalpha.c
+SRCS += ft_isdigit.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
