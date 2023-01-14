@@ -1,3 +1,4 @@
+# （参考）
 # https://zenn.dev/keitean/articles/aaef913b433677
 TARGET = main.exe
 
@@ -12,14 +13,12 @@ OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -g
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar r $@ $^
-
-debug: main.o $(OBJS)
-	$(CC) $^ -o $(TARGET)
 
 %.o: %.c
 	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $*.o
@@ -31,3 +30,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+debug: main.o $(OBJS)
+	$(CC) $^ -o $(TARGET)
