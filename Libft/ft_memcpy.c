@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:18:05 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/15 15:30:41 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/01/15 15:37:35 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
+	if (dest == src)
+		return (dest);
 	while (n--)
-	{
 		((char *)dest)[n] = ((char *)src)[n];
-	}
 	return (dest);
 }
