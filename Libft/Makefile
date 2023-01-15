@@ -13,6 +13,7 @@ SRCS += ft_isalnum.c
 SRCS += ft_isascii.c
 SRCS += ft_isprint.c
 SRCS += ft_strlen.c
+SRCS += ft_memset.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
