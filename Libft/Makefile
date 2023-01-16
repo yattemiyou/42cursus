@@ -17,6 +17,7 @@ SRCS += ft_memset.c
 SRCS += ft_bzero.c
 SRCS += ft_memcpy.c
 SRCS += ft_memmove.c
+SRCS += ft_toupper.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
