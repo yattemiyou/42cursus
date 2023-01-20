@@ -24,6 +24,7 @@ SRCS += ft_tolower.c
 SRCS += ft_strchr.c
 SRCS += ft_strrchr.c
 SRCS += ft_strncmp.c
+SRCS += ft_memchr.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
