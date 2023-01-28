@@ -31,6 +31,7 @@ SRCS += ft_atoi.c
 SRCS += ft_calloc.c
 SRCS += ft_strdup.c
 SRCS += ft_substr.c
+SRCS += ft_strjoin.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
