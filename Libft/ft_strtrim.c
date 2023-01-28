@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:00:00 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/28 18:06:45 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/01/28 18:10:16 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		ptr++;
 	}
 	buffer = ft_calloc(1, ft_strlen(s1) - count + 1);
+	if (buffer == NULL)
+		return (NULL);
 	ptr = buffer;
 	while (*s1)
 	{
