@@ -37,6 +37,7 @@ SRCS += ft_split.c
 SRCS += ft_itoa.c
 SRCS += ft_putchar_fd.c
 SRCS += ft_putstr_fd.c
+SRCS += ft_putendl_fd.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
