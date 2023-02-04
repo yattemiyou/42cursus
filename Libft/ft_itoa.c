@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:46:07 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/03 21:11:35 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/04 17:12:59 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_digits(int n)
 	int	digits;
 
 	digits = 1;
-	while (n / 10 > 0)
+	while (n / 10 >= 1)
 	{
 		digits++;
 		n /= 10;
