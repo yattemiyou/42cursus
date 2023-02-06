@@ -35,6 +35,7 @@ SRCS += ft_strjoin.c
 SRCS += ft_strtrim.c
 SRCS += ft_split.c
 SRCS += ft_itoa.c
+SRCS += ft_strmapi.c
 SRCS += ft_putchar_fd.c
 SRCS += ft_putstr_fd.c
 SRCS += ft_putendl_fd.c
