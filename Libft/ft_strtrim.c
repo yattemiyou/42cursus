@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:00:00 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/28 18:10:16 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/18 17:55:48 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,16 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ptr;
-	int		count;
-	char	*buffer;
+	char const	*ptr = s1;
+	char		*start;
+	char		*end;
 
-	if (s1 == NULL || set == NULL)
-		return (NULL);
-	ptr = (char *)s1;
-	count = 0;
-	while (*ptr)
-	{
-		if (ft_strchr(set, *ptr) != NULL)
-			count++;
+	while (*ptr && ft_strchr(set, *ptr) != NULL)
 		ptr++;
-	}
-	buffer = ft_calloc(1, ft_strlen(s1) - count + 1);
-	if (buffer == NULL)
-		return (NULL);
-	ptr = buffer;
-	while (*s1)
-	{
-		if (ft_strchr(set, *s1) == NULL)
-			*ptr++ = *s1;
-		s1++;
-	}
-	return (buffer);
+	start = (char *)ptr;
+	ptr = s1 + ft_strlen(s1);
+	while (ptr != start && ft_strchr(set, *ptr) != NULL)
+		ptr--;
+	end = (char *)++ptr;
+	return (ft_substr(start, 0, end - start));
 }
