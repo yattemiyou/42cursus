@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 21:19:39 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/21 11:50:04 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/19 13:42:32 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	char	*ptr;
 
 	len = ft_strlen(s2);
+	if (len == 0)
+		return ((char *)s1);
 	if (n < len)
 		return (NULL);
 	ptr = ft_strchr(s1, s2[0]);
