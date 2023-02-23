@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:36:01 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/15 15:32:49 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/23 18:42:42 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	if (s == NULL)
-		return (s);
 	while (n--)
 		((char *)s)[n] = c;
 	return (s);
