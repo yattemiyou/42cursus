@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:10:16 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/28 15:35:48 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/24 22:03:05 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (len < size)
 		size = len;
 	size += 1;
-	buffer = ft_calloc(1, size);
+	buffer = ft_calloc(size, 1);
+	if (buffer == NULL)
+		return (NULL);
 	ft_strlcpy(buffer, s + start, size);
 	return (buffer);
 }
