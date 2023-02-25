@@ -6,28 +6,24 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 21:19:39 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/19 13:42:32 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/26 08:57:23 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t range)
 {
 	size_t	len;
-	char	*ptr;
 
-	len = ft_strlen(s2);
+	len = ft_strlen(little);
 	if (len == 0)
-		return ((char *)s1);
-	if (n < len)
-		return (NULL);
-	ptr = ft_strchr(s1, s2[0]);
-	while (ptr != NULL && (size_t)(ptr - s1) <= (n - len))
+		return ((char *)big);
+	while (*big && range-- >= len)
 	{
-		if (ft_strncmp(ptr, s2, len) == 0)
-			return (ptr);
-		ptr = ft_strchr(++ptr, s2[0]);
+		if (ft_strncmp(big, little, len) == 0)
+			return ((char *)big);
+		big++;
 	}
 	return (NULL);
 }
