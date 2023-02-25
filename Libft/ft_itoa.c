@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:46:07 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/04 17:12:59 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/25 14:36:13 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*ft_itoa(int n)
 	}
 	digits = get_digits(n);
 	buffer = ft_calloc(negative + digits + 1, sizeof(char));
+	if (buffer == NULL)
+		return (NULL);
 	while (--digits >= 0)
 	{
 		buffer[negative + digits] = n % 10 + '0';
