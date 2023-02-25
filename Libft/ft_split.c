@@ -6,17 +6,19 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 18:15:12 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/04 11:27:24 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/25 14:32:24 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_count(char const *s, char c)
+static char	**get_array(char const *s, char c)
 {
 	char const	*ptr = s;
 	int			count;
 
+	if (s == NULL)
+		return (NULL);
 	count = 0;
 	while (*ptr)
 	{
@@ -27,7 +29,7 @@ static int	get_count(char const *s, char c)
 		}
 		ptr++;
 	}
-	return (count);
+	return (ft_calloc(count + 1, sizeof(char *)));
 }
 
 char	**ft_split(char const *s, char c)
@@ -35,19 +37,19 @@ char	**ft_split(char const *s, char c)
 	char const	*ptr = s;
 	char		*head;
 	int			count;
-	char		**target;
+	char		**buffer;
 
-	if (s == NULL)
+	buffer = get_array(s, c);
+	if (buffer == NULL)
 		return (NULL);
 	head = NULL;
 	count = 0;
-	target = ft_calloc(get_count(s, c) + 1, sizeof(char *));
 	while (*ptr)
 	{
 		if (*ptr == c)
 		{
 			if (head != NULL)
-				target[count++] = ft_substr(head, 0, ptr - head);
+				buffer[count++] = ft_substr(head, 0, ptr - head);
 			head = NULL;
 		}
 		else if (ptr == s || *(ptr - 1) == c)
@@ -55,6 +57,6 @@ char	**ft_split(char const *s, char c)
 		ptr++;
 	}
 	if (head != NULL)
-		target[count++] = ft_substr(head, 0, ptr - head);
-	return (target);
+		buffer[count++] = ft_substr(head, 0, ptr - head);
+	return (buffer);
 }
