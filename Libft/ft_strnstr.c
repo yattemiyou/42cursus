@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 21:19:39 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/26 08:57:23 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/26 10:06:22 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t range)
 	len = ft_strlen(little);
 	if (len == 0)
 		return ((char *)big);
+	if (range == 0)
+		return (NULL);
 	while (*big && range-- >= len)
 	{
 		if (ft_strncmp(big, little, len) == 0)
