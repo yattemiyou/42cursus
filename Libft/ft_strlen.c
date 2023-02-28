@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:40:04 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/15 11:27:53 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/28 11:13:28 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 size_t	ft_strlen(const char *s)
 {
-	const char	*ptr;
+	const char	*ptr = s;
 
-	ptr = s;
 	while (*ptr)
 		ptr++;
 	return (ptr - s);
