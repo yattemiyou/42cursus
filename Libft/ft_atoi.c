@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:05:21 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/28 10:50:51 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/28 21:22:53 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ static long	is_overflow(int sign, long n, int m)
 {
 	int	ones_place;
 
-	ones_place = LONG_MAX % 10;
 	if (sign == 1)
 	{
+		ones_place = LONG_MAX % 10;
 		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && m > ones_place))
 			return (LONG_MAX);
 	}
 	else
 	{
-		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && m > ones_place + 1))
+		ones_place = (LONG_MIN - (LONG_MIN / 10) * 10) * -1;
+		if (n > LONG_MIN / -10 || (n == LONG_MIN / -10 && m > ones_place))
 			return (LONG_MIN);
 	}
 	return (0);
