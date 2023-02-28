@@ -6,16 +6,36 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:05:21 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/19 17:10:17 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/02/28 10:50:51 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+
+static long	is_overflow(int sign, long n, int m)
+{
+	int	ones_place;
+
+	ones_place = LONG_MAX % 10;
+	if (sign == 1)
+	{
+		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && m > ones_place))
+			return (LONG_MAX);
+	}
+	else
+	{
+		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && m > ones_place + 1))
+			return (LONG_MIN);
+	}
+	return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
-	int	sign;
-	int	ret;
+	int		sign;
+	long	ret;
+	long	overflow;
 
 	sign = 1;
 	ret = 0;
@@ -28,6 +48,11 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	while (ft_isdigit(*nptr))
+	{
+		overflow = is_overflow(sign, ret, *nptr - '0');
+		if (overflow != 0)
+			return ((int)overflow);
 		ret = ret * 10 + (*nptr++ - '0');
+	}
 	return (sign * ret);
 }
