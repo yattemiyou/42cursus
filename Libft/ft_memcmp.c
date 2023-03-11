@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:59:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/01/20 21:09:06 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/03/11 12:39:18 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
 	while (n--)
 	{
 		if (*ptr1 != *ptr2)
