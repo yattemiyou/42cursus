@@ -44,7 +44,7 @@ SRCS += ft_putnbr_fd.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -g
 
