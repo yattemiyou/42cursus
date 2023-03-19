@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:46:07 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/25 14:36:13 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/03/19 17:47:03 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <limits.h>
 
-static int	get_digits(int n)
+static int	get_digits(unsigned int n)
 {
 	int	digits;
 
@@ -29,26 +29,26 @@ static int	get_digits(int n)
 
 char	*ft_itoa(int n)
 {
-	int		negative;
-	int		digits;
-	char	*buffer;
+	unsigned int	positive;
+	int				negative;
+	int				digits;
+	char			*buffer;
 
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
+	positive = (unsigned int)n;
 	negative = 0;
 	if (n < 0)
 	{
+		positive = (unsigned int)((n + 1) * -1 + 1);
 		negative = 1;
-		n *= -1;
 	}
-	digits = get_digits(n);
+	digits = get_digits(positive);
 	buffer = ft_calloc(negative + digits + 1, sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
 	while (--digits >= 0)
 	{
-		buffer[negative + digits] = n % 10 + '0';
-		n = n / 10;
+		buffer[negative + digits] = positive % 10 + '0';
+		positive = positive / 10;
 	}
 	if (negative)
 		buffer[0] = '-';
