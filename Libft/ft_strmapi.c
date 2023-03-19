@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:59:15 by anonymous         #+#    #+#             */
-/*   Updated: 2023/02/26 13:51:06 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/03/19 15:09:39 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (dest == NULL)
 		return (NULL);
 	index = 0;
-	while (dest[index])
+	while (*s)
 	{
-		dest[index] = f(index, dest[index]);
+		dest[index] = f(index, *s++);
 		index++;
 	}
 	return (dest);
