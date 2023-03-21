@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:46:07 by anonymous         #+#    #+#             */
-/*   Updated: 2023/03/19 17:47:03 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/03/21 12:12:52 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_digits(unsigned int n)
 	int	digits;
 
 	digits = 1;
-	while (n / 10 >= 1)
+	while (n >= 10)
 	{
 		digits++;
 		n /= 10;
@@ -27,6 +27,8 @@ static int	get_digits(unsigned int n)
 	return (digits);
 }
 
+// （参考）
+// https://share-answers.com/2進数で負マイナスの数を表す補数とは？求め方/
 char	*ft_itoa(int n)
 {
 	unsigned int	positive;
@@ -38,7 +40,7 @@ char	*ft_itoa(int n)
 	negative = 0;
 	if (n < 0)
 	{
-		positive = (unsigned int)((n + 1) * -1 + 1);
+		positive = (unsigned int)(-1 * n);
 		negative = 1;
 	}
 	digits = get_digits(positive);
