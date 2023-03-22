@@ -1,1 +1,17 @@
-
+# Born2beRoot
+## 環境構築
+1. ネットワークアダプタの追加  
+   （参考）
+   https://www.kwonline.org/memo2/2020/01/21/debian-10%E3%81%A7nic%E3%82%922%E6%9E%9A%E5%90%8C%E6%99%82%E3%81%AB%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B/
+   1. 「内部ネットワーク」を追加する。  
+      ホスト／ゲスト間の場合は、「ホストオンリーアダプター」
+   1. 設定ファイルを編集する。  
+      「vi /etc/network/interfaces」を実行し、下記を追記する。  
+      ```
+      allow-hotplug enp0s8
+      iface enp0s8 inet static
+      address 192.168.1.42
+      netmask 255.255.255.0
+      ```
+   1. 再起動する。  
+      「reboot」を実行し、pingできることを確認する。  
