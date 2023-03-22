@@ -15,3 +15,17 @@
       ```
    1. 再起動する。  
       「reboot」を実行し、pingできることを確認する。  
+
+1. 文字化けへの対応  
+   （参考）
+   https://izumii19.hatenablog.com/entry/2018/11/15/225313
+   1. 設定ファイルを編集する。  
+      「vi /etc/bash.bashrc」を実行し、下記を追記する。  
+      ```
+      case $TERM in
+          linux) LANG=C ;;
+          *) LANG=ja_JP.UTF-8 ;;
+      esac
+      ```
+   1. 再起動する。  
+      「reboot」を実行し、文字化けが解消されていることを確認する。  
