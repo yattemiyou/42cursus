@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "Libft"
+		},
+		{
+			"path": "Born2beroot"
 		}
 	]
 }
