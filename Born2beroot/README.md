@@ -10,7 +10,8 @@
    1. 「ssh -p 4242 root@192.168.1.42」を実行し、接続できないことを確認する。
 
 1. ファイアウォールが自動で起動していることを確認する。  
-   1. 「systemctl status ufw.service」を実行し、確認する。
+   1. 「systemctl status ufw.service」を実行し、確認する。  
+   1. 「ufw status」を実行し、確認する。  
 
 ## 環境構築
 1. ネットワークアダプタの追加  
@@ -57,11 +58,30 @@
       「reboot」を実行し、ポート番号が変更されていることを確認する。  
 
 1. ファイアウォール  
-   1. インストールする。  
-      「apt install ufw」を実行する。  
+   （参考）  
+   https://korodes.com/debian11_03/  
+   https://www.mk-mode.com/blog/2021/10/20/debian-11-firewall-setting/  
+   1. インストール  
+      1. 「apt install ufw」を実行する。  
 
-   1. 自動起動の設定をする。  
-      「systemctl enable ufw.service」を実行する。  
+   1. 自動起動  
+      1. 「systemctl enable ufw.service」を実行する。  
+
+   1. 起動  
+      1. 「systemctl start ufw.service」を実行する。  
+
+   1. 有効化  
+      1. 「ufw enable」を実行する。  
+
+   1. 受信パケットのデフォルトルール  
+      1. 「ufw default deny incoming」を実行する。  
+
+   1. 送信パケットのデフォルトルール  
+      1. 「ufw default allow outgoing」を実行する。  
+
+   1. SSHポートを許可する。  
+      1. 「ufw allow 4242/tcp」を実行する。  
+      1. 「ufw reload」を実行する。  
 
    1. 再起動する。  
       「reboot」を実行し、ファイアウォールが起動していることを確認する。  
