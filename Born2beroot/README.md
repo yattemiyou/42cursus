@@ -16,6 +16,10 @@
 1. ユーザ  
    1. 「id -Gn b2b」を実行し、「sudo」、「user42」グループに所属していることを確認する。  
 
+1. sudo  
+   1. 「sudo sudo -V」を実行し、下記を確認する。  
+      * 認証の試行回数  
+
 ## 環境構築
 1. ネットワークアダプタの追加  
    （参考）
@@ -90,8 +94,17 @@
       「reboot」を実行し、ファイアウォールが起動していることを確認する。  
 
 1. sudo  
+   （参考）  
+   https://linuxjm.osdn.jp/html/sudo/man5/sudoers.5.html  
    1. インストール  
       1. 「apt install sudo」を実行する。  
+   1. エディタの変更  
+      1. 「update-alternatives --config editor」を実行し、「vim」を選択する。  
+   1. 認証の試行回数  
+      1. 「visudo」を実行し、下記を追記する。  
+      ```
+      Defaults passwd_tries=5
+      ```
 
 1. ユーザー設定  
    1. グループの作成  
