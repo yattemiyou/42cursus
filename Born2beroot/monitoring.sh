@@ -4,6 +4,7 @@ ARCH=`uname -a`
 PROC=`grep "physical id" /proc/cpuinfo | sort -u | wc -l`
 VPROC=`grep processor /proc/cpuinfo | wc -l`
 MEM=`free --mebi | awk '$1=="Mem:" {printf "%d/%dMB (%.2f%%)", $2-$7, $2, ($2-$7)/$2*100}'`
+DISK=`df -h | awk '$6=="/" {printf "%.1f/%.1fGb (%d%%)", $3, $2, $5}'`
 CPU=`top -b -n 1 | awk -F ',' 'NR==3 {print $4}' | awk '{printf "%.1f", 100.0-$1}'`
 UPTIME=`uptime -s | awk -F ':' '{print $1 ":" $2}'`
 LVM=`vgs --noheadings | awk '{if ($3 > 0) {print "yes"} else {print "no"}}'`
@@ -22,6 +23,7 @@ echo "#Architecture: ${ARCH}"
 echo "#CPU physical : ${PROC}"
 echo "#vCPU : ${VPROC}"
 echo "#Memory Usage: ${MEM}"
+echo "#Disk Usage: ${DISK}"
 echo "#CPU load: ${CPU}%"
 echo "#Last boot: ${UPTIME}"
 echo "#LVM use: ${LVM}"
