@@ -64,7 +64,7 @@ sudo apt install libpam-pwquality
 
 ## 既存ユーザへのパスワードポリシーの適用
 sudo chage -M 30 -m 2 -W 7 _user_  
-sudo passwd _user_
+sudo passwd _user_  
 
-## パスワードポリシーの確認
-chage -l _user_
+## パスワードポリシーのテスト
+chage -l _user_  
