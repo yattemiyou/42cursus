@@ -51,40 +51,6 @@
    1. 再起動する。  
       「reboot」を実行し、文字化けが解消されていることを確認する。  
 
-1. sudo  
-   （参考）  
-   https://linuxjm.osdn.jp/html/sudo/man5/sudoers.5.html  
-   https://ja.linux-console.net/?p=2263#gsc.tab=0  
-   1. インストール  
-      1. 「apt install sudo」を実行する。  
-   1. エディタの変更  
-      1. 「update-alternatives --config editor」を実行し、「vim」を選択する。  
-   1. 認証の試行回数  
-      1. 「visudo」を実行し、下記を追記する。  
-      ```
-      Defaults passwd_tries=3
-      ```
-   1. 認証失敗時のメッセージ  
-      1. 「visudo」を実行し、下記を追記する。  
-      ```
-      Defaults badpass_message="badpass"
-      ```
-   1. ロギング  
-      1. 「visudo」を実行し、下記を追記する。  
-      ```
-      Defaults log_input, log_output, iolog_dir="/var/log/sudo"
-      ```
-   1. TTYモードの有効化  
-      1. 「visudo」を実行し、下記を追記する。  
-      ```
-      Defaults requiretty
-      ```
-   1. sudoから実行するコマンドのパス  
-      1. 「visudo」を実行し、下記を追記する。  
-      ```
-	  Defaults secure_path=".../bin:/snap/bin"
-      ```
-
 1. ユーザー設定  
    1. グループの作成  
       1. 「groupadd user42」を実行する。  
