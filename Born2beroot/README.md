@@ -51,19 +51,6 @@
    1. 再起動する。  
       「reboot」を実行し、文字化けが解消されていることを確認する。  
 
-1. ポート番号の変更  
-   （参考）
-   https://marusankakusikaku.jp/linux/debian-ssh/
-   1. 設定ファイルを編集する。  
-      「vi /etc/ssh/sshd_config」を実行し、下記を編集する。  
-      ```
-      #Port 22
-	  ↓
-      Port 4242
-      ```
-   1. 再起動する。  
-      「reboot」を実行し、ポート番号が変更されていることを確認する。  
-
 1. ファイアウォール  
    （参考）  
    https://korodes.com/debian11_03/  
