@@ -7,7 +7,7 @@ MEM=`free --mebi | awk '$1=="Mem:" {printf "%d/%dMB (%.2f%%)", $2-$7, $2, ($2-$7
 DISK=`df -h | awk '$6=="/" {printf "%.1f/%.1fGb (%d%%)", $3, $2, $5}'`
 CPU=`top -b -n 1 | awk -F ',' 'NR==3 {print $4}' | awk '{printf "%.1f", 100.0-$1}'`
 UPTIME=`uptime -s | awk -F ':' '{print $1 ":" $2}'`
-LVM=`vgs --noheadings | awk '{if ($3 > 0) {print "yes"} else {print "no"}}'`
+LVM=`/usr/sbin/vgs --noheadings | awk '{if ($3 > 0) {print "yes"} else {print "no"}}'`
 
 CONNECTION=`ss -t | grep ESTAB | wc -l`
 
@@ -33,4 +33,4 @@ INFO+="#User log: ${USER}\n"
 INFO+="#Network: IP ${IP} (${MAC})\n"
 INFO+="#Sudo : ${NUMBER} cmd\n"
 
-echo -e ${INFO} | wall -n
+echo -e ${INFO} | wall
