@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 ARCH=`uname -a`
 PROC=`grep "physical id" /proc/cpuinfo | sort -u | wc -l`
@@ -19,15 +19,18 @@ MAC=`ip link show ${DEVICE} | grep link | awk '{print $2}'`
 
 NUMBER=$((36#`head -n 1 /var/log/sudo/seq`))
 
-echo "#Architecture: ${ARCH}"
-echo "#CPU physical : ${PROC}"
-echo "#vCPU : ${VPROC}"
-echo "#Memory Usage: ${MEM}"
-echo "#Disk Usage: ${DISK}"
-echo "#CPU load: ${CPU}%"
-echo "#Last boot: ${UPTIME}"
-echo "#LVM use: ${LVM}"
-echo "#Connections TCP : ${CONNECTION} ESTABLISHED"
-echo "#User log: ${USER}"
-echo "#Network: IP ${IP} (${MAC})"
-echo "#Sudo : ${NUMBER} cmd"
+INFO=""
+INFO+="#Architecture: ${ARCH}\n"
+INFO+="#CPU physical : ${PROC}\n"
+INFO+="#vCPU : ${VPROC}\n"
+INFO+="#Memory Usage: ${MEM}\n"
+INFO+="#Disk Usage: ${DISK}\n"
+INFO+="#CPU load: ${CPU}%\n"
+INFO+="#Last boot: ${UPTIME}\n"
+INFO+="#LVM use: ${LVM}\n"
+INFO+="#Connections TCP : ${CONNECTION} ESTABLISHED\n"
+INFO+="#User log: ${USER}\n"
+INFO+="#Network: IP ${IP} (${MAC})\n"
+INFO+="#Sudo : ${NUMBER} cmd\n"
+
+echo -e ${INFO} | wall -n
