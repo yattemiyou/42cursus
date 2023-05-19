@@ -5,10 +5,10 @@ sudo apt install libpam-pwquality
 ## 設定
 パスワードポリシーを適用するため、すべてのアカウント（root含む）のパスワードを変更する必要があります。
 
-* パスワードを変更しなくてよい最長日数は、30日
+* パスワードは30日ごとに期限切れ
 ```
 /etc/login.defs
-	PASS_MAX_DAYS 30
+	PASS_MAX_DAYS 29?
 ```
 
 * パスワードが変更できるまでの最短日数は、2日
@@ -37,7 +37,7 @@ sudo apt install libpam-pwquality
 	dcredit -1
 ```
 
-* 連続する同一文字を3文字以上含めない
+* 連続する同一文字を3文字より多く~~以上~~含めない
 ```
 /etc/pam.d/common-password
 	maxrepeat 3
