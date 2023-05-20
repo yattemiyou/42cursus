@@ -1,6 +1,7 @@
 # パスワードポリシー
 ## インストール
 sudo apt install libpam-pwquality
+sudo apt install libpwquality-tools
 
 ## 設定
 パスワードポリシーを適用するため、すべてのアカウント（root含む）のパスワードを変更する必要があります。
