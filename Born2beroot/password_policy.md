@@ -25,13 +25,13 @@ sudo apt install libpam-pwquality
 
 * パスワードの長さは、10文字以上
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	minlen 10
 ```
 
 * パスワードは、大文字、小文字、数字を含む
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	ucredit -1
 	lcredit -1
 	dcredit -1
@@ -39,26 +39,26 @@ sudo apt install libpam-pwquality
 
 * 連続する同一文字を3文字より多く~~以上~~含めない
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	maxrepeat 3
 ```
 
 * パスワードにユーザー名を含めない
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	usercheck 1
 ```
 
 * 旧パスワードから7文字以上変更しなければならない  
 （注）rootユーザは除外
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	difok 7
 ```
 
 * rootユーザにもパスワードポリシーを適用する
 ```
-/etc/pam.d/common-password
+/etc/security/pwquality.conf
 	enforce_for_root
 ```
 
