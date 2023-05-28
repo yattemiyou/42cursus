@@ -8,6 +8,7 @@ SRCDIR = ./src/
 SRCS = ft_printf.c
 SRCS += ft_print_char.c
 SRCS += ft_print_decimal.c
+SRCS += ft_print_string.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
