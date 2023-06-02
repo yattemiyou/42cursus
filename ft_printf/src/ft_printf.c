@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:15:49 by anonymous         #+#    #+#             */
-/*   Updated: 2023/05/28 11:31:44 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/02 21:56:21 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ static ssize_t	dispatch(char type, va_list *ap)
 		return (ft_print_char((char)va_arg(*ap, int)));
 	if (type == 's')
 		return (ft_print_string(va_arg(*ap, char *)));
-	if (type == 'd')
+	if (type == 'd' || type == 'i')
 		return (ft_print_decimal(va_arg(*ap, int)));
+	if (type == 'u')
+		return (ft_print_decimal(va_arg(*ap, unsigned int)));
+	if (type == '%')
+		return (ft_print_char('%'));
 	return (-1);
 }
 
@@ -38,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		c = *format++;
-		if (c == '%' && strchr("csd", *format))
+		if (c == '%' && strchr("csdiu%", *format))
 		{
 			len = dispatch(*format, &ap);
 			format++;
