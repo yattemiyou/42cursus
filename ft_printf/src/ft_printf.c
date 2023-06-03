@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:15:49 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/03 11:06:34 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/03 11:57:12 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ static ssize_t	dispatch(char type, va_list *ap)
 int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
-	size_t		sum;
-	char		c;
+	ssize_t		sum;
 	ssize_t		len;
+	char		c;
 
 	va_start(ap, format);
 	sum = 0;
