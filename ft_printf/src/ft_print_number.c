@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 09:55:57 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/03 10:42:12 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/03 14:42:06 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,22 @@ static int	ft_toupper(int c)
 
 ssize_t	ft_print_number(uint64_t n, int base, int upper)
 {
+	ssize_t	sum;
 	ssize_t	len;
 	char	hex;
 
-	len = 0;
+	sum = 0;
 	if (n / base > 0)
-		len += ft_print_number(n / base, base, upper);
+	{
+		sum = ft_print_number(n / base, base, upper);
+		if (sum < 0)
+			return (-1);
+	}
 	hex = HEX[n % base];
 	if (upper)
 		hex = ft_toupper(hex);
-	len += ft_print_char(hex);
-	return (len);
+	len = ft_print_char(hex);
+	if (len < 0)
+		return (-1);
+	return (sum + len);
 }
