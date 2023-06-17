@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "ft_printf"
+		},
+		{
+			"path": "get_next_line"
 		}
 	]
 }
