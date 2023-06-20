@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:54:47 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/21 06:20:04 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/21 06:26:12 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,17 @@ size_t	ft_strlen(const char *s)
 	while (*ptr)
 		ptr++;
 	return (ptr - s);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	return (NULL);
 }
