@@ -6,11 +6,13 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:54:47 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/21 06:26:12 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/21 07:00:19 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -34,4 +36,18 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	return (NULL);
+}
+
+void	*ft_calloc(size_t size)
+{
+	void	*ptr;
+	size_t	index;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+		return (NULL);
+	index = 0;
+	while (index < size)
+		((unsigned char *)ptr)[index++] = (unsigned char)0;
+	return (ptr);
 }
