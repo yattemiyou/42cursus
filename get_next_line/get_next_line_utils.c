@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:54:47 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/21 07:00:19 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/24 11:00:10 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (s == NULL)
+		return (NULL);
 	if (c == '\0')
 		return ((char *)s + ft_strlen(s));
 	while (*s)
@@ -50,4 +52,13 @@ void	*ft_calloc(size_t size)
 	while (index < size)
 		((unsigned char *)ptr)[index++] = (unsigned char)0;
 	return (ptr);
+}
+
+void	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	if (dest == NULL || src == NULL)
+		return ;
+	while (size-- && *src)
+		*dest++ = *src++;
+	*dest = '\0';
 }
