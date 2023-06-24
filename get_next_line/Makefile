@@ -12,7 +12,7 @@ SRCS += main.c
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -DBUFFER_SIZE=1 -DOPEN_MAX=42 -DSSIZE_MAX=LONG_MAX
 CFLAGS += -g
 
 all: $(NAME)
