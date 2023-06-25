@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:51:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/25 12:10:44 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/25 16:42:08 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,15 @@ static ssize_t	initialize(int fd, char	**buffer)
 {
 	ssize_t	buffer_len;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE > SSIZE_MAX)
-		return (-1);
-	if (buffer[fd] == NULL)
+	if (*buffer == NULL)
 	{
-		buffer[fd] = (char *)ft_calloc(BUFFER_SIZE + 1);
-		if (buffer[fd] == NULL)
+		*buffer = (char *)ft_calloc(BUFFER_SIZE + 1);
+		if (*buffer == NULL)
 			return (-1);
 	}
-	buffer_len = (ssize_t)ft_strlen(buffer[fd]);
+	buffer_len = (ssize_t)ft_strlen(*buffer);
 	if (buffer_len == 0)
-		buffer_len = read(fd, buffer[fd], BUFFER_SIZE);
+		buffer_len = read(fd, *buffer, BUFFER_SIZE);
 	return (buffer_len);
 }
 
@@ -69,9 +67,11 @@ char	*get_next_line(int fd)
 	size_t		line_len;
 	ssize_t		buffer_len;
 
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE > SSIZE_MAX)
+		return (NULL);
 	line = NULL;
 	line_len = 0;
-	buffer_len = initialize(fd, buffer);
+	buffer_len = initialize(fd, &(buffer[fd]));
 	while (buffer_len > 0)
 	{
 		buffer[fd][buffer_len] = '\0';
