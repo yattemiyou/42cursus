@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:51:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/24 11:52:05 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/25 12:02:07 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	*get_next_line(int fd)
 	buffer_len = initialize(fd, &buffer);
 	while (buffer_len > 0)
 	{
+		buffer[buffer_len] = '\0';
 		line = cat(line, &line_len, buffer, buffer_len);
 		if (line == NULL)
 			break ;
@@ -82,8 +83,6 @@ char	*get_next_line(int fd)
 		buffer_len = read(fd, buffer, BUFFER_SIZE);
 		if (buffer_len < 0)
 			finalize(&line);
-		else
-			buffer[buffer_len] = '\0';
 	}
 	finalize(&buffer);
 	return (line);
