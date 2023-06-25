@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 05:51:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/06/25 12:02:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/06/25 16:32:49 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static ssize_t	initialize(int fd, char	**buffer)
 {
 	ssize_t	buffer_len;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE > SSIZE_MAX)
-		return (-1);
 	if (*buffer == NULL)
 	{
 		*buffer = (char *)ft_calloc(BUFFER_SIZE + 1);
@@ -69,6 +67,8 @@ char	*get_next_line(int fd)
 	size_t		line_len;
 	ssize_t		buffer_len;
 
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE > SSIZE_MAX)
+		return (NULL);
 	line = NULL;
 	line_len = 0;
 	buffer_len = initialize(fd, &buffer);
