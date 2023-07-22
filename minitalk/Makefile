@@ -5,7 +5,7 @@ NAME = minitalk
 INCLUDE = -I ./
 
 SRCDIR = ./
-SRCS = common.c
+SRCS = ft_common.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
 
@@ -17,10 +17,10 @@ $(NAME): all
 
 all: client server
 
-client: $(OBJS) $(SRCDIR)client.o
+client: $(OBJS) $(SRCDIR)ft_client.o
 	$(CC) $^ -o $@
 
-server: $(OBJS) $(SRCDIR)server.o
+server: $(OBJS) $(SRCDIR)ft_server.o
 	$(CC) $^ -o $@
 
 %.o: %.c
