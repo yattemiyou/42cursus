@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "get_next_line"
+		},
+		{
+			"path": "minitalk"
 		}
 	]
 }
