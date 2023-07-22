@@ -6,30 +6,47 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:32:13 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/23 06:44:04 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/23 07:08:46 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_common.h"
 
 #include <signal.h>
-#include <unistd.h>
 
 #define BITS 8
 
 static void	send_byte(pid_t pid, unsigned char byte)
 {
 	int	i;
+	int	ret;
 
 	i = BITS;
-	while (i--)
+	ret = 0;
+	while (i-- && ret == 0)
 	{
 		if ((byte >> i) & 0x01)
-			kill(pid, SIGUSR2);
+			ret = kill(pid, SIGUSR2);
 		else
-			kill(pid, SIGUSR1);
-		usleep(1000);
+			ret = kill(pid, SIGUSR1);
+		if (ret < 0)
+			ft_print_string("Error: kill\n");
+		ret = usleep(1000);
+		if (ret < 0)
+			ft_print_string("Error: usleep\n");
 	}
+}
+
+static pid_t	ft_initialize(int argc, char *argv[])
+{
+	pid_t	pid;
+
+	if (argc != 3)
+		return (-1);
+	pid = ft_read_pid(argv[1]);
+	if (pid < 0)
+		return (-1);
+	return (pid);
 }
 
 int	main(int argc, char *argv[])
@@ -37,11 +54,12 @@ int	main(int argc, char *argv[])
 	pid_t	pid;
 	char	*ptr;
 
-	if (argc != 3)
-		return (1);
-	pid = ft_read_pid(argv[1]);
+	pid = ft_initialize(argc, argv);
 	if (pid < 0)
+	{
+		ft_print_string("Error: ft_initialize\n");
 		return (1);
+	}
 	ptr = argv[2];
 	while (*ptr)
 		send_byte(pid, (unsigned char)*ptr++);
