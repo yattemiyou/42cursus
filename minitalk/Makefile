@@ -27,7 +27,7 @@ server: $(OBJS) $(SRCDIR)ft_server.o
 	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $*.o
 
 clean:
-	rm -f $(OBJS) $(SRCDIR)client.o $(SRCDIR)server.o
+	rm -f $(OBJS) $(SRCDIR)ft_client.o $(SRCDIR)ft_server.o
 
 fclean: clean
 	rm -f client
