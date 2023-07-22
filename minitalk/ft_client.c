@@ -6,14 +6,13 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:32:13 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/22 16:14:29 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/23 06:44:04 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_common.h"
 
 #include <signal.h>
-#include <stdlib.h>
 #include <unistd.h>
 
 #define BITS 8
@@ -40,7 +39,9 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 		return (1);
-	pid = atoi(argv[1]);
+	pid = ft_read_pid(argv[1]);
+	if (pid < 0)
+		return (1);
 	ptr = argv[2];
 	while (*ptr)
 		send_byte(pid, (unsigned char)*ptr++);

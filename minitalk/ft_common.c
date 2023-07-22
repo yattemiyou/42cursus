@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:21:06 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/22 11:09:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/23 06:42:05 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ size_t	ft_strlen(const char *s)
 	while (*ptr)
 		ptr++;
 	return (ptr - s);
+}
+
+ssize_t	ft_print_string(const char *s)
+{
+	return (write(STDOUT_FILENO, s, ft_strlen(s)));
 }
 
 ssize_t	ft_print_pid(pid_t pid)
@@ -39,7 +44,18 @@ ssize_t	ft_print_pid(pid_t pid)
 	return (++len);
 }
 
-ssize_t	ft_print_string(const char *s)
+pid_t	ft_read_pid(const char *nptr)
 {
-	return (write(STDOUT_FILENO, s, ft_strlen(s)));
+	pid_t	pid;
+
+	pid = 0;
+	while (*nptr)
+	{
+		if (*nptr < '0' || *nptr > '9')
+			return (-1);
+		pid = pid * 10 + (*nptr++ - '0');
+		if (pid > PID_MAX)
+			return (-1);
+	}
+	return (pid);
 }
