@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:34:50 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/22 15:44:17 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/22 16:10:13 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void	ft_write(sig_atomic_t byte)
 {
-	static uint8_t	buffer[2];
+	static uint8_t	buffer[256];
 	static uint32_t	counter = 0;
 
 	if (byte != '\0')
