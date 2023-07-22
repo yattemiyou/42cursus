@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:10:08 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/22 10:20:30 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/22 11:13:31 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 
-void	ft_print_pid(pid_t pid);
+size_t	ft_strlen(const char *s);
+ssize_t	ft_print_pid(pid_t pid);
+ssize_t	ft_print_string(const char *s);
 
 #endif
