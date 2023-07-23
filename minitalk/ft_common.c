@@ -6,11 +6,13 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 10:21:06 by anonymous         #+#    #+#             */
-/*   Updated: 2023/07/23 06:42:05 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/07/23 13:25:03 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_common.h"
+
+#include <limits.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -46,7 +48,7 @@ ssize_t	ft_print_pid(pid_t pid)
 
 pid_t	ft_read_pid(const char *nptr)
 {
-	pid_t	pid;
+	size_t	pid;
 
 	pid = 0;
 	while (*nptr)
@@ -54,8 +56,8 @@ pid_t	ft_read_pid(const char *nptr)
 		if (*nptr < '0' || *nptr > '9')
 			return (-1);
 		pid = pid * 10 + (*nptr++ - '0');
-		if (pid > PID_MAX)
+		if (pid > INT_MAX)
 			return (-1);
 	}
-	return (pid);
+	return ((pid_t)pid);
 }
