@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "minitalk"
+		},
+		{
+			"path": "push_swap"
 		}
 	]
 }
