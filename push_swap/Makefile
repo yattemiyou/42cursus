@@ -6,6 +6,7 @@ INCLUDE = -I ./
 
 SRCDIR = ./
 SRCS = main.c
+SRCS += ft_node.c
 SRCS += ft_util.c
 
 OBJS = $(addprefix $(SRCDIR),$(SRCS:%.c=%.o))
