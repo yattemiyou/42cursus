@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:12:34 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 18:46:57 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 19:54:24 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "ft_stack.h"
 
-int	make_chunk(t_stack *stack, int len, int asc);
+int	sort_node(t_stack *stack, int len, int asc);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:27:59 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 16:43:47 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 20:21:14 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,21 @@ static void	print_operation(char *operation, char label)
 	ft_print_string(STDOUT_FILENO, label_lf);
 }
 
-void	push_stack(t_stack *src, t_stack *dest)
+void	push_stack(t_stack *src, t_stack *dest, int n)
 {
 	t_node	*n1;
+	int		i;
 
 	if (src == dest)
 		return ;
-	print_operation("p", dest->label);
-	n1 = pop_node(src);
-	push_node(dest, n1);
+	i = 0;
+	while (i < n)
+	{
+		print_operation("p", dest->label);
+		n1 = pop_node(src);
+		push_node(dest, n1);
+		i++;
+	}
 }
 
 void	swap_stack(t_stack *stack)
@@ -56,26 +62,32 @@ void	swap_stack(t_stack *stack)
 	n3->prev = n1;
 }
 
-void	rotate_stack(t_stack *stack)
+void	rotate_stack(t_stack *stack, int n)
 {
 	t_node	*n0;
 	t_node	*n1;
 	t_node	*n2;
 	t_node	*nz;
+	int		i;
 
 	if (stack->len <= 1)
 		return ;
-	print_operation("r", stack->label);
-	n0 = stack->head;
-	n1 = n0->next;
-	n2 = n1->next;
-	nz = stack->head->prev;
-	nz->next = n1;
-	n1->prev = nz;
-	n1->next = n0;
-	n0->prev = n1;
-	n0->next = n2;
-	n2->prev = n0;
+	i = 0;
+	while (i < n)
+	{
+		print_operation("r", stack->label);
+		n0 = stack->head;
+		n1 = n0->next;
+		n2 = n1->next;
+		nz = stack->head->prev;
+		nz->next = n1;
+		n1->prev = nz;
+		n1->next = n0;
+		n0->prev = n1;
+		n0->next = n2;
+		n2->prev = n0;
+		i++;
+	}
 }
 
 void	rrotate_stack(t_stack *stack)
