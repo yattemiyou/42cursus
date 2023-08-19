@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:46:36 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 13:12:33 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 15:02:21 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ size_t	ft_strlen(const char *s)
 	return (ptr - s);
 }
 
-ssize_t	ft_print_string(const char *s)
+ssize_t	ft_print_string(int fd, const char *s)
 {
-	return (write(STDOUT_FILENO, s, ft_strlen(s)));
+	return (write(fd, s, ft_strlen(s)));
 }
 
 int64_t	ft_atoi(const char *nptr)
