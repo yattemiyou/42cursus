@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:25:07 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 15:55:55 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 15:59:56 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "ft_stack.h"
 
 void	swap_stack(t_stack *stack);
+void	rotate_stack(t_stack *stack);
 
 #endif
