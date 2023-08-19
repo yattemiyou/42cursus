@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:16:23 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 14:51:14 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 15:13:15 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ typedef struct s_stack
 
 t_stack	*initialize_stack(char label);
 int		add_node(t_stack *stack, int value);
+int		is_sorted(t_stack *stack);
 
 #endif
