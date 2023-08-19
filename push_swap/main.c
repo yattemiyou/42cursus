@@ -6,12 +6,13 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:31:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 17:58:25 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 18:54:17 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+#include "ft_chunk.h"
 #include "ft_error.h"
 #include "ft_operation.h"
 #include "ft_stack.h"
@@ -71,5 +72,7 @@ int	main(int argc, char *argv[])
 		ft_print_string(STDERR_FILENO, ERROR);
 		return (1);
 	}
+	free_memory(stack_a);
+	free_memory(stack_b);
 	return (0);
 }
