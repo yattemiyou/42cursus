@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:27:59 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 16:07:37 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 16:15:49 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,26 @@ void	rotate_stack(t_stack *stack)
 	n0->prev = n1;
 	n0->next = n2;
 	n2->prev = n0;
+}
+
+void	rrotate_stack(t_stack *stack)
+{
+	t_node	*n0;
+	t_node	*n1;
+	t_node	*ny;
+	t_node	*nz;
+
+	if (stack->len <= 1)
+		return ;
+	print_operation("rr", stack->label);
+	n0 = stack->head;
+	n1 = n0->next;
+	nz = stack->head->prev;
+	ny = nz->prev;
+	ny->next = n0;
+	n0->prev = ny;
+	n0->next = nz;
+	nz->prev = n0;
+	nz->next = n1;
+	n1->prev = nz;
 }
