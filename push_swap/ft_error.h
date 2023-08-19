@@ -6,8 +6,8 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:43:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/08 21:53:42 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 18:07:00 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ERROR "Error"
+#define ERROR "Error\n"
