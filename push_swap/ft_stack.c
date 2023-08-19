@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:23:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 15:23:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 16:40:47 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,31 @@ int	add_node(t_stack *stack, int value)
 	head->prev = node;
 	stack->len += 1;
 	return (TRUE);
+}
+
+t_node	*pop_node(t_stack *stack)
+{
+	t_node	*n1;
+	t_node	*n2;
+
+	n1 = stack->head->next;
+	n2 = n1->next;
+	stack->head->next = n2;
+	n2->prev = stack->head;
+	stack->len -= 1;
+	return (n1);
+}
+
+void	push_node(t_stack *stack, t_node *n1)
+{
+	t_node	*n2;
+
+	n2 = stack->head->next;
+	stack->head->next = n1;
+	n1->prev = stack->head;
+	n1->next = n2;
+	n2->prev = n1;
+	stack->len += 1;
 }
 
 int	is_sorted(t_stack *stack)

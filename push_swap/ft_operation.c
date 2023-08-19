@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:27:59 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 16:15:49 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 16:43:47 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ static void	print_operation(char *operation, char label)
 	ft_print_string(STDOUT_FILENO, operation);
 	label_lf[0] = label;
 	ft_print_string(STDOUT_FILENO, label_lf);
+}
+
+void	push_stack(t_stack *src, t_stack *dest)
+{
+	t_node	*n1;
+
+	if (src == dest)
+		return ;
+	print_operation("p", dest->label);
+	n1 = pop_node(src);
+	push_node(dest, n1);
 }
 
 void	swap_stack(t_stack *stack)
