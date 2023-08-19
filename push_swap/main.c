@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:31:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 18:54:17 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/19 19:08:24 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static int	initialize(t_stack **a, t_stack **b, int argc, char *argv[])
 	{
 		value = ft_atoi(argv[i]);
 		if (value == INT64_MIN)
+			return (FALSE);
+		if (is_duplicated_number(*a, value))
 			return (FALSE);
 		if (add_node(*a, value) == FALSE)
 			return (FALSE);

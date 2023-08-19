@@ -7,6 +7,7 @@ INCLUDE = -I ./
 SRCDIR = ./
 SRCS = main.c
 SRCS += ft_chunk.c
+SRCS += ft_error.c
 SRCS += ft_operation.c
 SRCS += ft_stack.c
 SRCS += ft_util.c
