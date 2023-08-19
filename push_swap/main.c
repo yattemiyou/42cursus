@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:31:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/20 08:00:14 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/20 08:52:09 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	initialize(t_stack **a, t_stack **b, int argc, char *argv[])
 // 		printf("%ld ", ptr->value);
 // 		ptr = ptr->next;
 // 	}
-// 	ft_print_string(STDOUT_FILENO, "\n");
+// 	printf("\n");
 // }
 
 int	main(int argc, char *argv[])
