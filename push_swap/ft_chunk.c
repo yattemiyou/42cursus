@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:13:57 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/20 06:27:47 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/20 07:00:26 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	merge_chunk(t_stack *src, t_stack *dest, int final)
 	int64_t	current_value;
 	t_stack	*temp;
 
-	while (is_sorted(src) == FALSE || is_sorted(dest) == FALSE || final)
+	while (is_sorted(src) == FALSE || is_sorted(dest) == FALSE || final--)
 	{
 		current_value = INT64_MIN;
 		while (src->len > 0 && dest->len > 0)
@@ -96,8 +96,6 @@ void	merge_chunk(t_stack *src, t_stack *dest, int final)
 			gather_chunk(dest, dest, current_value);
 		else if (dest->len == 0 || current_value > dest->head->next->value)
 			gather_chunk(src, dest, current_value);
-		if (src->len == 0 && is_sorted(dest))
-			break ;
 		temp = src;
 		src = dest;
 		dest = temp;

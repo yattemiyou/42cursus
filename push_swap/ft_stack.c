@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42tokyo.jp    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:23:41 by anonymous         #+#    #+#             */
-/*   Updated: 2023/08/19 16:40:47 by anonymous        ###   ########.fr       */
+/*   Updated: 2023/08/20 07:59:53 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,3 @@ int	is_sorted(t_stack *stack)
 	}
 	return (TRUE);
 }
-
-// #include <stdio.h>
-// void	print_stack(t_stack *stack)
-// {
-// 	t_node	*ptr;
-
-//     ptr = stack->head->next;
-//     while (ptr != stack->head)
-// 	{
-// 		printf("%ld ", ptr->value);
-// 		ptr = ptr->next;
-// 	}
-// 	ft_print_string(STDOUT_FILENO, "\n");
-// }
